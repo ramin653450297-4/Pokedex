@@ -24,12 +24,16 @@
           let count = 1;
           datas.forEach((element) => {
             //https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png
+            const name = element["name"]; 
             ele.innerHTML +=
               "<div class='col-3'>" +
+                "<a href='details/index.html?name=" +
+              name +
+              "'>" +
               "<div class='card'>" +
               "<img class='card-img-top' src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+count+".png'>" +
               "<div class='card-body'>" +
-              element["name"] +
+              name +
               "</div></div></div>";
               count++;
           });
