@@ -1,35 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Pokedex</title>
-
     <style>
-        .card {
-          margin-bottom: 1rem;
-        }
-      </style>
-</head>
-<body>
+      .card {
+        margin-bottom: 1rem;
+      }
+    </style>
+  </head>
+  <body>
     <div class="container">
-        <h1>Pokedex Lab</h1>
-        <div id="name" class="row"></div>
-      </div>
+      <h1>Pokedex Lab</h1>
+      <div id="name" class="row"></div>
+    </div>
     <script>
-        fetch("https://pokeapi.co/api/v2/pokemon")
+      fetch("https://pokeapi.co/api/v2/pokemon")
         .then((res) => res.json())
-        .then((data) => { 
-            const datas = data["results"];
-            const ele = document.querySelector(".name.row");
-            datas.forEach(element => {
-                ele.innerHTML += "<div class='col-3'>"+
-                    "<div class='card'>" +
-                    "<img class='card-img-top' src='1'>" +
-                    "<div class='card-body'>" + element["name"] + "</div><div></div>";
-            });
+        .then((data) => {
+          const datas = data["results"];
+          const ele = document.getElementById("name");
+          datas.forEach((element) => {
+            //https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png
+            ele.innerHTML +=
+              "<div class='col-3'>" +
+              "<div class='card'>" +
+              "<img class='card-img-top' src=''>" +
+              "<div class='card-body'>" +
+              element["name"] +
+              "</div></div></div>";
+          });
         })
         .catch((err) => console.error(err));
     </script>
-</body>
+  </body>
 </html>
