@@ -3,6 +3,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Pokedex</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
       .card {
         margin-bottom: 1rem;
@@ -20,15 +21,17 @@
         .then((data) => {
           const datas = data["results"];
           const ele = document.getElementById("name");
+          let count = 1;
           datas.forEach((element) => {
             //https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png
             ele.innerHTML +=
               "<div class='col-3'>" +
               "<div class='card'>" +
-              "<img class='card-img-top' src=''>" +
+              "<img class='card-img-top' src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+count+".png'>" +
               "<div class='card-body'>" +
               element["name"] +
               "</div></div></div>";
+              count++;
           });
         })
         .catch((err) => console.error(err));
