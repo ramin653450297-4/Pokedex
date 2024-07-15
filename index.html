@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .card {
+          margin-bottom: 1rem;
+        }
+      </style>
 </head>
 <body>
     <div class="container">
         <h1>Pokedex Lab</h1>
-        <div class="name row">
-        </div>
-    </div>
+        <div id="name" class="row"></div>
+      </div>
     <script>
         fetch("https://pokeapi.co/api/v2/pokemon")
         .then((res) => res.json())
@@ -20,7 +24,9 @@
             const ele = document.querySelector(".name.row");
             datas.forEach(element => {
                 ele.innerHTML += "<div class='col-3'>"+
-                    "<div class='card'>" +"<div class='card-body'>" + element["name"] + "</div><div></div>";
+                    "<div class='card'>" +
+                    "<img class='card-img-top' src='1'>" +
+                    "<div class='card-body'>" + element["name"] + "</div><div></div>";
             });
         })
         .catch((err) => console.error(err));
