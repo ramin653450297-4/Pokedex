@@ -1,44 +1,58 @@
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Pokedex</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-      .card {
-        margin-bottom: 1rem;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <h1>Pokedex Lab</h1>
-      <div id="name" class="row"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pokedex</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+  <div class = "body">
+  <div class="container">
+    <div class="h1">
+    <h1>Pokedex Lab</h1></div>
+    <div id="name" class="row"></div>
+    <div class="text-center">
+      <button id="loadMore" class="btn btn-primary">Load More</button>
     </div>
-    <script>
-      fetch("https://pokeapi.co/api/v2/pokemon")
+  </div>
+  <script>
+    let offset = 0;
+    const limit = 20;
+
+    function loadPokemon() {
+      fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`)
         .then((res) => res.json())
         .then((data) => {
           const datas = data["results"];
           const ele = document.getElementById("name");
-          let count = 1;
+          let count = offset + 1;
           datas.forEach((element) => {
-            //https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png
-            const name = element["name"]; 
+            const name = element["name"];
             ele.innerHTML +=
-              "<div class='col-3'>" +
-                "<a href='details/index.html?name=" +
-              name +
-              "'>" +
-              "<div class='card'>" +
-              "<img class='card-img-top' src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+count+".png'>" +
-              "<div class='card-body'>" +
-              name +
-              "</div></div></div>";
-              count++;
+              "<div class='col-6 col-md-3'>" + "<div class='a'>" +
+                "<a class='card-link' href='details/index.html?name=" + name + "'>" +
+                "<div class='card'>" +
+                  "<img class='card-img-top' src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + count + ".png'>" +
+                  "<div class='card-body'>"  +
+                    name +
+                  "</div>" + "</div>" +
+                "</div>" +
+              "</a>" +
+              "</div>";
+            count++;
           });
+          offset += limit;
         })
         .catch((err) => console.error(err));
-    </script>
-  </body>
+    }
+
+    document.getElementById('loadMore').addEventListener('click', loadPokemon);
+
+    // Initial load
+    loadPokemon();
+  </script>
+  </div>
+</body>
 </html>

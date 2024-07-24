@@ -1,0 +1,88 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: 20px;
+  }
+  
+  .pokemon-details {
+    width: 60%; /* ให้ข้อมูล Pokemon อยู่ทางซ้าย 60% ของ container */
+  }
+  
+  .pokemon-image {
+    width: 40%; /* ให้ภาพ Pokemon อยู่ทางขวา 40% ของ container */
+  }
+  
+  #name {
+    text-align: center; /* จัดตำแหน่งชื่อ Pokemon ตรงกลาง */
+  }
+  
+  #sprite {
+    max-width: 100%; /* ขนาดภาพ Pokemon ไม่เกินขอบเขตของพื้นที่ที่กำหนด */
+    height: auto;
+    display: block;
+    margin: 0 auto; /* จัดตำแหน่งภาพ Pokemon ตรงกลาง */
+    border: 1px solid #ddd; /* เส้นขอบในกรณีที่ภาพไม่พร้อมแสดงผล */
+    border-radius: 8px; /* ทำขอบโค้งให้กับภาพ */
+  }
+  
+  #types {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+  }
+  
+  #abilities {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+  }
+  
+  /* ตั้งค่าสีตาม Type และ Ability ต่าง ๆ */
+  #types a {
+    text-decoration: none;
+    padding: 3px 8px;
+    margin-right: 5px;
+    border-radius: 5px;
+    color: #fff;
+  }
+  
+  #types .normal { background-color: #a8a878; }
+  #types .fire { background-color: #f08030; }
+  #types .water { background-color: #6890f0; }
+  #types .electric { background-color: #f8d030; }
+  #types .grass { background-color: #78c850; }
+  #types .ice { background-color: #98d8d8; }
+  #types .fighting { background-color: #c03028; }
+  #types .poison { background-color: #a040a0; }
+  #types .ground { background-color: #e0c068; }
+  #types .flying { background-color: #a890f0; }
+  #types .psychic { background-color: #f85888; }
+  #types .bug { background-color: #a8b820; }
+  #types .rock { background-color: #b8a038; }
+  #types .ghost { background-color: #705898; }
+  #types .dragon { background-color: #7038f8; }
+  #types .dark { background-color: #705848; }
+  #types .steel { background-color: #b8b8d0; }
+  #types .fairy { background-color: #ee99ac; }
+  
+  #abilities a {
+    text-decoration: none;
+    padding: 3px 8px;
+    margin-right: 5px;
+    border-radius: 5px;
+    color: #fff;
+  }
+  
+  #abilities .overgrow { background-color: #78c850; }
+  #abilities .chlorophyll { background-color: #78c850; }
+  #abilities .blaze { background-color: #f08030; }
+  #abilities .solar-power { background-color: #f08030; }
+  #abilities .torrent { background-color: #6890f0; }
+  #abilities .rain-dish { background-color: #6890f0; }
+  #abilities .static { background-color: #f8d030; }
+  #abilities .lightning-rod { background-color: #f8d030; }
+  /* เพิ่มคลาสสำหรับความสามารถอื่น ๆ ตามที่ต้องการ */
+  

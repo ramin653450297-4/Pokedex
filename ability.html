@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pokemon Ability</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+  <div class="body">
+  <div class="container">
+    <div class="h1">
+    <h1 id="ability-name"></h1></div>
+    <div id="pokemon-list" class="row"></div>
+  </div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const abilityName = params.get('ability');
+
+    fetch(`https://pokeapi.co/api/v2/ability/${abilityName}`)
+      .then((res) => res.json())
+      .then((data) => {
+        document.getElementById('ability-name').textContent = abilityName;
+
+        const pokemonList = data.pokemon.map(pokemonInfo => {
+          const name = pokemonInfo.pokemon.name;
+          const id = pokemonInfo.pokemon.url.split('/').filter(Boolean).pop(); // Get the Pokemon ID from the URL
+          return `<div class='col-6 col-md-3'>
+                    <a class='card-link' href='details/index.html?name=${name}'> 
+                      <div class='card'>
+                        <img class='card-img-top' src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png'>
+                        <div class='card-body'>
+                          <div class='a'>
+                            <div class='card-link'>${name}</div>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>`;
+        }).join('');
+
+        document.getElementById('pokemon-list').innerHTML = pokemonList;
+      })
+      .catch((err) => console.error(err));
+  </script>
+  </div>
+</body>
+</html>
