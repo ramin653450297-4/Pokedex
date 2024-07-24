@@ -11,6 +11,7 @@
   
   .pokemon-image {
     width: 40%; /* ให้ภาพ Pokemon อยู่ทางขวา 40% ของ container */
+    size: 300px;
   }
   
   #name {
@@ -18,12 +19,13 @@
   }
   
   #sprite {
-    max-width: 100%; /* ขนาดภาพ Pokemon ไม่เกินขอบเขตของพื้นที่ที่กำหนด */
+    width: 600px; /* ขนาดภาพ Pokemon ไม่เกินขอบเขตของพื้นที่ที่กำหนด */
     height: auto;
     display: block;
     margin: 0 auto; /* จัดตำแหน่งภาพ Pokemon ตรงกลาง */
     border: 1px solid #ddd; /* เส้นขอบในกรณีที่ภาพไม่พร้อมแสดงผล */
     border-radius: 8px; /* ทำขอบโค้งให้กับภาพ */
+    object-fit: cover;
   }
   
   #types {

@@ -8,51 +8,54 @@
   <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-  <div class = "body">
-  <div class="container">
-    <div class="h1">
-    <h1>Pokedex Lab</h1></div>
-    <div id="name" class="row"></div>
-    <div class="text-center">
-      <button id="loadMore" class="btn btn-primary">Load More</button>
+  <div class="body">
+    <div class="container">
+      <div class="h1">
+        <h1>Pokedex Lab</h1>
+      </div>
+      <div id="name" class="row"></div>
+      <div class="text-center">
+        <button id="loadMore" class="btn btn-primary">Load More</button>
+      </div>
     </div>
-  </div>
-  <script>
-    let offset = 0;
-    const limit = 20;
+    <script>
+      let offset = 0;
+      const limit = 20;
 
-    function loadPokemon() {
-      fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`)
-        .then((res) => res.json())
-        .then((data) => {
-          const datas = data["results"];
-          const ele = document.getElementById("name");
-          let count = offset + 1;
-          datas.forEach((element) => {
-            const name = element["name"];
-            ele.innerHTML +=
-              "<div class='col-6 col-md-3'>" + "<div class='a'>" +
-                "<a class='card-link' href='details/index.html?name=" + name + "'>" +
-                "<div class='card'>" +
-                  "<img class='card-img-top' src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + count + ".png'>" +
-                  "<div class='card-body'>"  +
-                    name +
-                  "</div>" + "</div>" +
-                "</div>" +
-              "</a>" +
-              "</div>";
-            count++;
-          });
-          offset += limit;
-        })
-        .catch((err) => console.error(err));
-    }
+      function loadPokemon() {
+        fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`)
+          .then((res) => res.json())
+          .then((data) => {
+            const datas = data["results"];
+            const ele = document.getElementById("name");
+            let count = offset + 1;
+            datas.forEach((element) => {
+              const name = element["name"];
+              ele.innerHTML +=
+                "<div class='col-6 col-md-3'>" +
+                  "<div class='a'>" +
+                    "<a class='card-link' href='details/index.html?name=" + name + "'>" +
+                      "<div class='card'>" +
+                        "<img class='card-img-top' src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/" + count + ".svg'>" +
+                        "<div class='card-body'>" +
+                          name +
+                        "</div>" +
+                      "</div>" +
+                    "</a>" +
+                  "</div>" +
+                "</div>";
+              count++;
+            });
+            offset += limit;
+          })
+          .catch((err) => console.error(err));
+      }
 
-    document.getElementById('loadMore').addEventListener('click', loadPokemon);
+      document.getElementById('loadMore').addEventListener('click', loadPokemon);
 
-    // Initial load
-    loadPokemon();
-  </script>
+      // Initial load
+      loadPokemon();
+    </script>
   </div>
 </body>
 </html>

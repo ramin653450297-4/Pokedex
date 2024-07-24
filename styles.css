@@ -3,28 +3,38 @@
     font-family: sans-serif;
 }
 .card {
-transition: transform 0.2s, box-shadow 0.2s;
-border: 2px solid #ddd; 
-border-radius: 10px; 
-margin: 10px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 2px solid #ddd; 
+  border-radius: 10px; 
+  margin: 30px;
+  width: 250px;
+  height: 300px; /* Corrected height to be a fixed value */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .card:hover {
-transform: scale(1.05);
-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-border-color: #ff6347; 
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-color: #ff6347; 
 }
-.h1{
-position: relative;
-text-align: center;
+
+.h1 {
+  position: relative;
+  text-align: center;
 }
+
 .card-img-top {
-width: 200px;
-height: 200px;
-object-fit: cover;
-margin: auto;
-display: block;
+  bottom: 20px;
+  width: 150px;
+  height: 150px;
+  object-fit: contain; /* Ensures the image scales proportionally */
+  margin: auto;
+  flex-shrink: 0;
+  display: block;
 }
+
 .a{
     color: #333; 
     text-align: center;
