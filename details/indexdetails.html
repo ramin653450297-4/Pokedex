@@ -8,9 +8,12 @@
   <link href="stylesdetail.css" rel="stylesheet">
 </head>
 <body>
+  <div class="body">
   <div class="container">
     <div class="pokemon-details">
-      <h1 id="name"></h1>
+      <h1 id="name"></h1> <div class="pokemon-image">
+        <img id="sprite" class="img-fluid">
+      </div>
       <div class="details-row">
         <div class="detail-item">
           <p><strong>Height</strong> <br><span id="height"></span></p>
@@ -19,14 +22,14 @@
           <p><strong>Weight</strong> <br><span id="weight"></span></p>
         </div>
       </div>
-      <p><strong>Stats </strong></p>
-      <ul id="stats"></ul>
+      <p><strong>Stats</strong></p>
+      <ul id="stats" class="list-unstyled"></ul>
       <p><strong>Types </strong> <span id="types"></span></p>
       <p><strong>Abilities</strong> <span id="abilities"></span></p>
-    </div>
-    <div class="pokemon-image">
-      <img id="sprite" class="img-fluid">
-    </div>
+      <div class="pokemon-image">
+        <img id="sprite" class="img-fluid">
+      </div>
+  </div>
   </div>
   <script>
     const params = new URLSearchParams(window.location.search);
@@ -47,7 +50,15 @@
         const types = data.types.map(typeInfo => `<a class="${typeInfo.type.name}" href="../type.html?type=${typeInfo.type.name}">${typeInfo.type.name}</a>`).join(', ');
         document.getElementById('types').innerHTML = types;
 
-        const stats = data.stats.map(statInfo => `<li>${statInfo.stat.name}: ${statInfo.base_stat}</li>`).join('');
+        const stats = data.stats.map(statInfo => {
+          const statName = statInfo.stat.name;
+          const baseStat = statInfo.base_stat;
+          return `<li>${statName}: ${baseStat}
+                    <div class="progress">
+                      <div class="progress-bar ${statName}" role="progressbar" style="width: ${baseStat}%;" aria-valuenow="${baseStat}" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </li>`;
+        }).join('');
         document.getElementById('stats').innerHTML = stats;
 
         const abilities = data.abilities.map(abilityInfo => `<a class="${abilityInfo.ability.name}" href="../ability.html?ability=${abilityInfo.ability.name}">${abilityInfo.ability.name}</a>`).join(', ');
@@ -57,5 +68,6 @@
   </script>
   <div class="a">
     <a href="../index.html" class="btn-back">Back</a></div>
+  </div>
 </body>
 </html>

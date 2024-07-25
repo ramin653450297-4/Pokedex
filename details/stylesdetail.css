@@ -5,15 +5,22 @@
   align-items: center;
   padding-top: 20px;
 }
-
+.body{
+  background-image: url('https://www.chromethemer.com/wallpapers/chromebook-wallpapers/images/960/water-pokemon-chromebook-wallpaper.jpg'); 
+  background-size: cover; 
+  background-position: center;
+}
 .pokemon-details {
-  width: 100%;
-  background-color: lightblue;
+  width: 200%;
+  max-width: 2000px;
+  background-color: rgba(173, 216, 230, 0.8);
+  
   border-radius: 10px;
   padding: 20px;
   margin: 20px auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: left;
+  position: relative; 
 }
 
 .pokemon-details p {
@@ -26,7 +33,7 @@
   color: white;
   margin: 10px 0;
   text-align: left;
-  margin-left: 30%;
+  margin-left: 23%;
 }
 
 .pokemon-details p span {
@@ -51,29 +58,33 @@
 
 .details-row {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin-right: 500px;
 }
 
 .detail-item {
-  width: 100%;
+  width: 40%;
   text-align: center;
+  margin-left: 190px;
 }
 
 #name {
   text-align: center;
 }
 
+
 #sprite {
-  width: 100%;
-  max-width: 480px;
+  background-color: #fff;
+  width: 400px;
   height: auto;
-  margin-top: auto;
   display: block;
-  margin: 20px auto;
+  position: absolute;
+  margin-left: 350px;
+  right: 20px;
+  top: 20px;
   border: 1px solid #ddd;
   border-radius: 8px;
-  object-fit: cover;
+  object-fit:fill;
+  position:sticky;
 }
 
 #types, #abilities {
@@ -83,7 +94,6 @@
   border-radius: 5px;
 }
 
-/* Type and Ability styles */
 #types a, #abilities a {
   text-decoration: none;
   padding: 3px 8px;
@@ -125,6 +135,7 @@
 #abilities .tangled-feet { background-color: #f0a3ea; }
 #abilities .big-pecks { background-color: #a3f0b7; }
 
+
 .a {
   color: white;
 }
@@ -156,7 +167,7 @@
   }
 
   .pokemon-details {
-    width: 50%;
+    width: 100%;
   }
 
   .details-row {
@@ -164,10 +175,45 @@
   }
 
   .detail-item {
-    width: 45%;
+    width: 40%;
   }
+}
+.stat-bar {
+  width: 50%;
+  background-color: #ddd;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
 
-  #sprite {
-    width: 480px;
-  }
+.stat-bar .bar {
+  height: 20px;
+  line-height: 20px;
+  color: white;
+  text-align: center;
+  transition: width 0.5s ease;
+}
+
+.hp {
+  background-color: #4CAF50; /* สีเขียว */
+}
+
+.attack {
+  background-color: #FF9800; /* สีส้ม */
+}
+
+.defense {
+  background-color: #FF5722; /* สีแดง */
+}
+
+.special-attack {
+  background-color: #2196F3; /* สีน้ำเงิน */
+}
+
+.special-defense {
+  background-color: #9C27B0; /* สีม่วง */
+}
+
+.speed {
+  background-color: #607D8B; /* สีเทา */
 }
