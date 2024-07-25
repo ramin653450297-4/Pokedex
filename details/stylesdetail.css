@@ -1,30 +1,31 @@
+/* General styles for the container */
 .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding-top: 20px;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
 
 .pokemon-details {
-  width: 50%;
+  width: 100%;
   background-color: lightblue;
   border-radius: 10px;
   padding: 20px;
-  margin: 20px auto; 
+  margin: 20px auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: left; 
-  
+  text-align: left;
 }
-.pokemon-details p  {
+
+.pokemon-details p {
   color: white;
   margin: 10px 0;
   margin-left: 23%;
-  
 }
-.pokemon-details ul{
+
+.pokemon-details ul {
   color: white;
   margin: 10px 0;
-  text-align: left; 
+  text-align: left;
   margin-left: 30%;
 }
 
@@ -40,123 +41,133 @@
 
 .pokemon-details p, .pokemon-details ul {
   color: white;
-  
 }
 
 .pokemon-details p strong {
   color: black;
   display: inline-block;
-  width: 100px; 
+  width: 100px;
 }
 
 .details-row {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
 }
 
 .detail-item {
-  width: 45%;
+  width: 100%;
   text-align: center;
 }
 
-  #name {
-    text-align: center; 
-  }
-  
-  #sprite {
-    width: 480px; 
-    height: auto;
-    margin-top: auto;
-    display: block;
-    margin: 20px auto 20px auto; 
-    border: 1px solid #ddd; 
-    border-radius: 8px; 
-    object-fit: cover;
-  }
-  
-  #types {
-    display: inline-block;
-    padding: 5px 10px;
-    margin-bottom: 5px;
-    border-radius: 5px;
-  }
-  
-  #abilities {
-    display: inline-block;
-    padding: 5px 10px;
-    margin-bottom: 5px;
-    border-radius: 5px;
-  }
-  
-  /* ตั้งค่าสีตาม Type และ Ability ต่าง ๆ */
-  #types a {
-    text-decoration: none;
-    padding: 3px 8px;
-    margin-right: 5px;
-    border-radius: 5px;
-    color: #fff;
-  }
-  
-  #types .normal { background-color: #a8a878; }
-  #types .fire { background-color: #f08030; }
-  #types .water { background-color: #6890f0; }
-  #types .electric { background-color: #f8d030; }
-  #types .grass { background-color: #78c850; }
-  #types .ice { background-color: #98d8d8; }
-  #types .fighting { background-color: #c03028; }
-  #types .poison { background-color: #a040a0; }
-  #types .ground { background-color: #e0c068; }
-  #types .flying { background-color: #a890f0; }
-  #types .psychic { background-color: #f85888; }
-  #types .bug { background-color: #a8b820; }
-  #types .rock { background-color: #b8a038; }
-  #types .ghost { background-color: #705898; }
-  #types .dragon { background-color: #7038f8; }
-  #types .dark { background-color: #705848; }
-  #types .steel { background-color: #b8b8d0; }
-  #types .fairy { background-color: #ee99ac; }
-  
-  #abilities a {
-    text-decoration: none;
-    padding: 3px 8px;
-    margin-right: 5px;
-    border-radius: 5px;
-    color: #fff;
-  }
-  
-  #abilities .overgrow { background-color: #78c850; }
-  #abilities .chlorophyll { background-color: #78c850; }
-  #abilities .blaze { background-color: #f08030; }
-  #abilities .solar-power { background-color: #f08030; }
-  #abilities .torrent { background-color: #6890f0; }
-  #abilities .rain-dish { background-color: #6890f0; }
-  #abilities .static { background-color: #f8d030; }
-  #abilities .lightning-rod { background-color: #f8d030; }
-  #abilities  .keen-eye{background-color: #d7f0a3;}
-  #abilities  .tangled-feet{background-color: #f0a3ea;}
-  #abilities  .big-pecks{background-color: #a3f0b7;}
-  .a{
-    color: white;
-  }
-  .btn-back {
-    background-color: red;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-    margin-left: 20px;
-    margin-top: 200px;
-    border-radius: 5px;
-    text-decoration: none; 
-    color: inherit;
-  }
-  
-  .btn-back:hover {
-    background-color: darkred;
-    text-decoration: none; 
-    color: inherit; 
+#name {
+  text-align: center;
+}
+
+#sprite {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  margin-top: auto;
+  display: block;
+  margin: 20px auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+#types, #abilities {
+  display: inline-block;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+/* Type and Ability styles */
+#types a, #abilities a {
+  text-decoration: none;
+  padding: 3px 8px;
+  margin-right: 5px;
+  border-radius: 5px;
+  color: #fff;
+}
+
+/* Type colors */
+#types .normal { background-color: #a8a878; }
+#types .fire { background-color: #f08030; }
+#types .water { background-color: #6890f0; }
+#types .electric { background-color: #f8d030; }
+#types .grass { background-color: #78c850; }
+#types .ice { background-color: #98d8d8; }
+#types .fighting { background-color: #c03028; }
+#types .poison { background-color: #a040a0; }
+#types .ground { background-color: #e0c068; }
+#types .flying { background-color: #a890f0; }
+#types .psychic { background-color: #f85888; }
+#types .bug { background-color: #a8b820; }
+#types .rock { background-color: #b8a038; }
+#types .ghost { background-color: #705898; }
+#types .dragon { background-color: #7038f8; }
+#types .dark { background-color: #705848; }
+#types .steel { background-color: #b8b8d0; }
+#types .fairy { background-color: #ee99ac; }
+
+/* Ability colors */
+#abilities .overgrow { background-color: #78c850; }
+#abilities .chlorophyll { background-color: #78c850; }
+#abilities .blaze { background-color: #f08030; }
+#abilities .solar-power { background-color: #f08030; }
+#abilities .torrent { background-color: #6890f0; }
+#abilities .rain-dish { background-color: #6890f0; }
+#abilities .static { background-color: #f8d030; }
+#abilities .lightning-rod { background-color: #f8d030; }
+#abilities .keen-eye { background-color: #d7f0a3; }
+#abilities .tangled-feet { background-color: #f0a3ea; }
+#abilities .big-pecks { background-color: #a3f0b7; }
+
+.a {
+  color: white;
+}
+
+.btn-back {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  margin: 20px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.btn-back:hover {
+  background-color: darkred;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Responsive styles */
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+    justify-content: space-between;
   }
 
-  
+  .pokemon-details {
+    width: 50%;
+  }
+
+  .details-row {
+    flex-direction: row;
+  }
+
+  .detail-item {
+    width: 45%;
+  }
+
+  #sprite {
+    width: 480px;
+  }
+}
