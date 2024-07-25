@@ -11,12 +11,18 @@
   <div class="container">
     <div class="pokemon-details">
       <h1 id="name"></h1>
-      <p><strong>Height:</strong> <span id="height"></span></p>
-      <p><strong>Weight:</strong> <span id="weight"></span></p>
-      <p><strong>Types:</strong> <span id="types"></span></p>
-      <p><strong>Stats:</strong></p>
+      <div class="details-row">
+        <div class="detail-item">
+          <p><strong>Height</strong> <br><span id="height"></span></p>
+        </div>
+        <div class="detail-item">
+          <p><strong>Weight</strong> <br><span id="weight"></span></p>
+        </div>
+      </div>
+      <p><strong>Stats </strong></p>
       <ul id="stats"></ul>
-      <p><strong>Abilities:</strong> <span id="abilities"></span></p>
+      <p><strong>Types </strong> <span id="types"></span></p>
+      <p><strong>Abilities</strong> <span id="abilities"></span></p>
     </div>
     <div class="pokemon-image">
       <img id="sprite" class="img-fluid">
@@ -30,7 +36,11 @@
       .then((res) => res.json())
       .then((data) => {
         document.getElementById('name').textContent = data.name;
-        document.getElementById('sprite').src = data.sprites.front_default;
+
+        const pokemonId = data.id;
+        const svgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemonId}.svg`;
+
+        document.getElementById('sprite').src = svgUrl;
         document.getElementById('height').textContent = data.height;
         document.getElementById('weight').textContent = data.weight;
 
@@ -45,5 +55,7 @@
       })
       .catch((err) => console.error(err));
   </script>
+  <div class="a">
+    <a href="../index.html" class="btn-back">Back</a></div>
 </body>
 </html>

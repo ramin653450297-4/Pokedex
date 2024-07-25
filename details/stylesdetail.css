@@ -4,27 +4,73 @@
     align-items: flex-start;
     padding-top: 20px;
   }
+
+.pokemon-details {
+  width: 50%;
+  background-color: lightblue;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px auto; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left; 
   
-  .pokemon-details {
-    width: 60%; /* ให้ข้อมูล Pokemon อยู่ทางซ้าย 60% ของ container */
-  }
+}
+.pokemon-details p  {
+  color: white;
+  margin: 10px 0;
+  margin-left: 23%;
   
-  .pokemon-image {
-    width: 40%; /* ให้ภาพ Pokemon อยู่ทางขวา 40% ของ container */
-    size: 300px;
-  }
+}
+.pokemon-details ul{
+  color: white;
+  margin: 10px 0;
+  text-align: left; 
+  margin-left: 30%;
+}
+
+.pokemon-details p span {
+  display: block;
+  margin-left: 5px;
+}
+
+.pokemon-details ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.pokemon-details p, .pokemon-details ul {
+  color: white;
   
+}
+
+.pokemon-details p strong {
+  color: black;
+  display: inline-block;
+  width: 100px; 
+}
+
+.details-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.detail-item {
+  width: 45%;
+  text-align: center;
+}
+
   #name {
-    text-align: center; /* จัดตำแหน่งชื่อ Pokemon ตรงกลาง */
+    text-align: center; 
   }
   
   #sprite {
-    width: 600px; /* ขนาดภาพ Pokemon ไม่เกินขอบเขตของพื้นที่ที่กำหนด */
+    width: 480px; 
     height: auto;
+    margin-top: auto;
     display: block;
-    margin: 0 auto; /* จัดตำแหน่งภาพ Pokemon ตรงกลาง */
-    border: 1px solid #ddd; /* เส้นขอบในกรณีที่ภาพไม่พร้อมแสดงผล */
-    border-radius: 8px; /* ทำขอบโค้งให้กับภาพ */
+    margin: 20px auto 20px auto; 
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
     object-fit: cover;
   }
   
@@ -86,5 +132,31 @@
   #abilities .rain-dish { background-color: #6890f0; }
   #abilities .static { background-color: #f8d030; }
   #abilities .lightning-rod { background-color: #f8d030; }
-  /* เพิ่มคลาสสำหรับความสามารถอื่น ๆ ตามที่ต้องการ */
+  #abilities  .keen-eye{background-color: #d7f0a3;}
+  #abilities  .tangled-feet{background-color: #f0a3ea;}
+  #abilities  .big-pecks{background-color: #a3f0b7;}
+  .a{
+    color: white;
+  }
+  .btn-back {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin-left: 20px;
+    margin-top: 200px;
+    border-radius: 5px;
+    text-decoration: none; 
+    color: inherit;
+  }
+  
+  .btn-back:hover {
+    background-color: darkred;
+    text-decoration: none; 
+    color: inherit; 
+  }
+
   

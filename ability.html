@@ -9,28 +9,31 @@
 </head>
 <body>
   <div class="body">
-  <div class="container">
-    <div class="h1">
-    <h1 id="ability-name"></h1></div>
-    <div id="pokemon-list" class="row"></div>
+    <div class="container">
+      <h1 id="ability-name"></h1>
+      <div id="pokemon-list" class="row"></div>
+    </div>
   </div>
+
   <script>
     const params = new URLSearchParams(window.location.search);
     const abilityName = params.get('ability');
 
     fetch(`https://pokeapi.co/api/v2/ability/${abilityName}`)
-      .then((res) => res.json())
-      .then((data) => {
-        document.getElementById('ability-name').textContent = abilityName;
+  .then((res) => res.json())
+  .then((data) => {
+    document.getElementById('ability-name').textContent = abilityName;
 
-        const pokemonList = data.pokemon.map(pokemonInfo => {
-          const name = pokemonInfo.pokemon.name;
-          const id = pokemonInfo.pokemon.url.split('/').filter(Boolean).pop(); // Get the Pokemon ID from the URL
-          return `<div class='col-6 col-md-3'>
-                    <a class='card-link' href='details/index.html?name=${name}'> 
+    const pokemonList = data.pokemon.map(pokemonInfo => {
+      const name = pokemonInfo.pokemon.name;
+      const pokemonId = pokemonInfo.pokemon.url.split('/').filter(Boolean).pop(); 
+      // เปลี่ยนจาก PNG เป็น SVG
+      const svgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.svg`;
+
+      return `<div class='col-6 col-md-3'>
+                    <a class='card-link' href='../details/indexdetails.html?name=${name}'> 
                       <div class='card'>
-                        <img class='card-img-top' src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.svg'>
-                        <div class='card-body'>
+                        <img class='card-img-top' src='${svgUrl}' alt='${name}' /> <div class='card-body'>
                           <div class='a'>
                             <div class='card-link'>${name}</div>
                           </div>
@@ -38,12 +41,13 @@
                       </div>
                     </a>
                   </div>`;
-        }).join('');
+    }).join('');
 
-        document.getElementById('pokemon-list').innerHTML = pokemonList;
-      })
-      .catch((err) => console.error(err));
+    document.getElementById('pokemon-list').innerHTML = pokemonList;
+  })
+  .catch((err) => console.error(err));
+
   </script>
-  </div>
+
 </body>
 </html>

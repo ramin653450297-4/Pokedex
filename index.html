@@ -8,11 +8,11 @@
   <link href="styles.css" rel="stylesheet">
 </head>
 <body>
+  <header>
+    <h1>Pokedex Lab</h1>
+ </header>
   <div class="body">
     <div class="container">
-      <div class="h1">
-        <h1>Pokedex Lab</h1>
-      </div>
       <div id="name" class="row"></div>
       <div class="text-center">
         <button id="loadMore" class="btn btn-primary">Load More</button>
@@ -34,7 +34,7 @@
               ele.innerHTML +=
                 "<div class='col-6 col-md-3'>" +
                   "<div class='a'>" +
-                    "<a class='card-link' href='details/index.html?name=" + name + "'>" +
+                    "<a class='card-link' href='details/indexdetails.html?name=" + name + "'>" +
                       "<div class='card'>" +
                         "<img class='card-img-top' src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/" + count + ".svg'>" +
                         "<div class='card-body'>" +
@@ -56,6 +56,9 @@
       // Initial load
       loadPokemon();
     </script>
+     <footer>
+      
+    </footer>
   </div>
 </body>
 </html>

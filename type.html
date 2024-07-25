@@ -24,14 +24,15 @@
       .then((res) => res.json())
       .then((data) => {
         document.getElementById('type-name').textContent = typeName;
-
         const pokemonList = data.pokemon.map(pokemonInfo => {
           const name = pokemonInfo.pokemon.name;
-          const id = pokemonInfo.pokemon.url.split('/').filter(Boolean).pop(); 
+          const pokemonId = pokemonInfo.pokemon.url.split('/').filter(Boolean).pop(); 
+          const svgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.svg`;
+          
           return `<div class='col-6 col-md-3'>
-                    <a class='card-link' href='details/index.html?name=${name}'> 
+                    <a class='card-link' href='details/indexdetails.html?name=${name}'> 
                       <div class='card'>
-                        <img class='card-img-top' src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.svg'>
+                        <img class='card-img-top' src='${svgUrl}'>
                         <div class='card-body'>
                           <div class='a'>
                             <div class='card-link'>${name}</div>
